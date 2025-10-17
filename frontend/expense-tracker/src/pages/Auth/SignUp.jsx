@@ -91,7 +91,7 @@ import ProfilePhotoSelector from '../../components/Inputs/ProfilePhotoSelector';
   
             <p className='text-[13px] text-slate-800 mt-3'>
               Already have an account?{" "}
-              <Link className='font-medium text-primary underline' to="/signUp">Login</Link>
+              <Link className='font-medium text-primary underline' to="/login">Login</Link>
             </p>
           </form>
         </div>
