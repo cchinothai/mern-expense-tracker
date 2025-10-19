@@ -12,11 +12,13 @@ import SignUp from './pages/Auth/SignUp';
 import Home from './pages/Auth/Dashboard/Home'; 
 import Income from './pages/Auth/Dashboard/Income';
 import Expense from './pages/Auth/Dashboard/Expense';
+import UserProvider from './context/userContext';
 
 // In React Router, the exact prop on a <Route> component is used to ensure that the route only renders its associated component when the current URL path exactly matches the path prop of the <Route>.
 // **make sure exact element matches the export default
 const App = () => {
   return (
+    <UserProvider>
     <div>
       <Router>
         <Routes>
@@ -29,6 +31,7 @@ const App = () => {
         </Routes>
       </Router>
     </div> 
+    </UserProvider>
   )
 }
 
