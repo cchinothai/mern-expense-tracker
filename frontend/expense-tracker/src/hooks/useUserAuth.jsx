@@ -10,6 +10,8 @@ export const useUserAuth = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        if(user) return;
+
         let isMounted = true;
 
         const fetchUserInfo = async () => {
@@ -18,6 +20,8 @@ export const useUserAuth = () => {
 
             if (isMounted && response.data){
                 updateUser(response.data);
+
+                console.log('fetch user info', response.data)
             }
         } catch (error) {
             console.error("Failed to fetch user info:", error);
@@ -25,16 +29,16 @@ export const useUserAuth = () => {
                 clearUser();
                 navigate("/login")
             }
-        }
-    };
+        }};
+    
 
-    fetchUserInfo();
+        fetchUserInfo();
 
-    return () => {
-        isMounted = false;
-    };
+        return () => {
+            isMounted = false;
+        };
 
-    }, []); //updateUser, clearUser, navigate***
+    }, [updateUser, clearUser, navigate]); //updateUser, clearUser, navigate***
 };
 
 
