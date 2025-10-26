@@ -7,6 +7,8 @@ const Last30DaysExpenseTransactions = ({ data }) => {
 
     useEffect( () => {
         const result = prepareExpenseBarChartData(data);
+        console.log('prepareExpenseBarChartData result: ', result);
+        
         setChartData(result);
 
         return () => {};

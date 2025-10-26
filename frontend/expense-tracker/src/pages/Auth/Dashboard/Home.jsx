@@ -92,6 +92,7 @@ const Home = () => {
             onSeeMore={() => navigate("/expense")} 
            /> 
 
+          {/* Debug Error - Not Rendering */}
           <Last30DaysExpenseTransactions
             data = {dashboardData?.last30DaysExpenseTransactions?.transactions}
             />
