@@ -28,12 +28,13 @@ const CustomBarChart = ({ data }) => {
                     Amount: <span className='text-sm font-medium text-gray-900'>${payload[0].payload.amount}</span>
                  </p>
             </div>
-        )
+        );
      }
+     return null;
    }
   return (
     <div className='bg-white mt-6'>
-        <ResponsiveContainer width="100%" hieght={300}>
+        <ResponsiveContainer width="100%" height={300}>
             <BarChart data={data}>
                 <CartesianGrid stroke="none" />
 
@@ -49,10 +50,10 @@ const CustomBarChart = ({ data }) => {
                     activeDot={{ r: 8, fill: "yellow"}}
                     activeStyle={{ fill: "green"}}
                 >
-                    {data.map((entry, index) => {
+                    {data.map((entry, index) => (
                         <Cell key={index} fill={getBarColor(index)} />
 
-                    })}
+                    ))}
                 </Bar>
             </BarChart>
         </ResponsiveContainer>
