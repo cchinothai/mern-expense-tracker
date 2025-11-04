@@ -36,7 +36,7 @@ exports.getDashboardData = async (req,res) => {
             (sum, transaction) => sum + transaction.amount, 0
         );
 
-        // // Add these logs before the query
+        // Add these logs before the query
         // console.log('Expense Query Params:', {
         //     userId,
         //     userObjectId,
@@ -51,15 +51,15 @@ exports.getDashboardData = async (req,res) => {
         }).sort({ date: -1 });
 
         // Add these logs after the query
-        // console.log('Expense Query Results:', {
-        // found: last30DaysExpenseTransactions.length > 0,
-        // count: last30DaysExpenseTransactions.length,
-        // firstTransaction: last30DaysExpenseTransactions[0],
-        // query: {
-        //     userId,
-        //     dateRange: `Last 30 days from ${new Date().toISOString()}`
-        // }
-});
+//         console.log('Expense Query Results:', {
+//         found: last30DaysExpenseTransactions.length > 0,
+//         count: last30DaysExpenseTransactions.length,
+//         firstTransaction: last30DaysExpenseTransactions[0],
+//         query: {
+//             userId,
+//             dateRange: `Last 30 days from ${new Date().toISOString()}`
+//         }
+// });
 
         //Get total expense for last 30 days 
         const expensesLast30Days = last30DaysExpenseTransactions.reduce(
