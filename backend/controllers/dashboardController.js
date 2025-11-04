@@ -28,7 +28,7 @@ exports.getDashboardData = async (req,res) => {
         //Get income transactions in the last 60 days
         const last60DaysIncomeTransactions = await Income.find({
             userId, 
-            date: { $gte: new Date( Date.now() - 60 * 24 * 60 * 60 * 1000) },
+            date: { $gte: new Date(Date.now() - 60 * 24 * 60 * 60 * 1000) },
          }).sort({ date: -1 });
 
         // Get total income for last 60 days
@@ -36,12 +36,12 @@ exports.getDashboardData = async (req,res) => {
             (sum, transaction) => sum + transaction.amount, 0
         );
 
-        // Add these logs before the query
-        console.log('Expense Query Params:', {
-            userId,
-            userObjectId,
-            dateThreshold: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
-        });
+        // // Add these logs before the query
+        // console.log('Expense Query Params:', {
+        //     userId,
+        //     userObjectId,
+        //     dateThreshold: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
+        // });
 
 
         //Get expense transactions in the last 30 days
@@ -51,14 +51,14 @@ exports.getDashboardData = async (req,res) => {
         }).sort({ date: -1 });
 
         // Add these logs after the query
-        console.log('Expense Query Results:', {
-        found: last30DaysExpenseTransactions.length > 0,
-        count: last30DaysExpenseTransactions.length,
-        firstTransaction: last30DaysExpenseTransactions[0],
-        query: {
-            userId,
-            dateRange: `Last 30 days from ${new Date().toISOString()}`
-        }
+        // console.log('Expense Query Results:', {
+        // found: last30DaysExpenseTransactions.length > 0,
+        // count: last30DaysExpenseTransactions.length,
+        // firstTransaction: last30DaysExpenseTransactions[0],
+        // query: {
+        //     userId,
+        //     dateRange: `Last 30 days from ${new Date().toISOString()}`
+        // }
 });
 
         //Get total expense for last 30 days 
