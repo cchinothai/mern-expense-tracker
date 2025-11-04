@@ -13,6 +13,8 @@ import RecentTransactions from '../../../components/Dashboard/RecentTransactions
 import FinanceOverview from '../../../components/Dashboard/FinanceOverview';
 import ExpenseTransactions from '../../../components/Dashboard/ExpenseTransactions';
 import Last30DaysExpenseTransactions from '../../../components/Dashboard/Last30DaysExpenseTransactions';
+import RecentIncomeWithChart from '../../../components/Dashboard/RecentIncomeWithChart';
+import RecentIncome from '../../../components/Dashboard/RecentIncome';
 
 const Home = () => {
   useUserAuth();
@@ -92,12 +94,21 @@ const Home = () => {
             onSeeMore={() => navigate("/expense")} 
            /> 
 
-          {/* Debug Error - Not Rendering */}
+          {/* Debug Error - Bar not showing up */}
           <Last30DaysExpenseTransactions
             data = {dashboardData?.last30DaysExpenses?.transactions || []}
             />
-        </div>
 
+          <RecentIncomeWithChart
+            data={dashboardData?.last60DaysIncome?.transactions?.slice(0,4) || []}
+            totalIncome={dashboardData?.totalIncome || 0}
+            />
+
+          <RecentIncome
+            transactions={dashboardData?.last60DaysIncome?.transactions || []}
+            onSeeMore={() => navigate("/income")} 
+            />
+        </div>
       </div>
     </DashboardLayout>  
   );
