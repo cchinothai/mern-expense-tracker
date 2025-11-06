@@ -9,10 +9,13 @@ const Last30DaysExpenseTransactions = ({ data }) => {
         console.log('last30days data: ', data);
         
         const result = prepareExpenseBarChartData(data);
+
+        console.log('RESULT*: ', result);
+        
         
         setChartData(result);
 
-        return () => {};
+        return () => {}; 
     }, [data]);
 
   return (

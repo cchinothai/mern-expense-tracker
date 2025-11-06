@@ -34,7 +34,7 @@ export const prepareExpenseBarChartData = (data = []) => {
         amount: item?.amount,
     }));
 
-    console.log('heper.js chartData: ', chartData);
+    console.log('helper.js chartData: ', chartData);
     
 
     return chartData;
