@@ -94,7 +94,6 @@ const Home = () => {
             onSeeMore={() => navigate("/expense")} 
            /> 
 
-          {/* Debug Error - Bar not showing up */}
           <Last30DaysExpenseTransactions
             data = {dashboardData?.last30DaysExpenses?.transactions || []}
             />
